@@ -1,2 +1,0 @@
-class PowerController < ApplicationController
-end

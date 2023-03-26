@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :heroes, only: [:index, :show]
+  get 'hero_powers/create'
+  get 'powers/index'
+  get 'powers/show'
+  get 'powers/update'
+  get 'heroes/index'
+  get 'heroes/show'
+  resources :heroes, only: [:index, :show] do
+    resources :powers, only: [:index]
+  end
   resources :powers, only: [:index, :show, :update]
   resources :hero_powers, only: [:create]
-
-  get '/heroes/:id/powers', to: 'heroes#powers'
-  get '/powers/:id/heroes', to: 'powers#heroes'
 end
+

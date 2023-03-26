@@ -1,29 +1,23 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
+# Heroes
+# Heroes
+Hero.create(name: 'Kamala Khan', super_name: 'Ms. Marvel')
+Hero.create(name: 'Doreen Green', super_name: 'Squirrel Girl')
+Hero.create(name: 'Gwen Stacy', super_name: 'Spider-Gwen')
 
-puts "seed starting"
-hero_data = [
-{ "id": 1, "name": "Kamala Khan", "super_name": "Ms. Marvel" },
-{ "id": 2, "name": "Doreen Green", "super_name": "Squirrel Girl" },
-{ "id": 3, "name": "Gwen Stacy", "super_name": "Spider-Gwen" }
-]
+# Powers
+Power.create(name: 'Super Strength', description: 'Gives the wielder super-human strength')
+Power.create(name: 'Flight', description: 'Gives the wielder the ability to fly through the skies at supersonic speed')
+Power.create(name: 'Invisibility', description: 'Allows the wielder to become invisible at will')
 
-power_data = [
-{ "id": 1, "name": "super strength", "description": "gives the wielder super-human strengths" },
-{ "id": 2, "name": "flight", "description": "gives the wielder the ability to fly through the skies at supersonic speed" }
-]
+# Hero Powers
+HeroPower.create(hero_id: 1, power_id: 1, strength: 'Strong')
+HeroPower.create(hero_id: 1, power_id: 2, strength: 'Average')
+HeroPower.create(hero_id: 2, power_id: 3, strength: 'Weak')
 
-Create Heroes
-hero_data.each do |hero|
-Hero.create(hero)
-end
-
-Create Powers
-power_data.each do |power|
-Power.create(power)
-end
-
-Create HeroPowers
-HeroPower.create(strength: "Average", power_id: 1, hero_id: 1)
-HeroPower.create(strength: "Above Average", power_id: 2, hero_id: 1)
-HeroPower.create(strength: "Average", power_id: 1, hero_id: 2)
-HeroPower.create(strength: "Above Average", power_id: 2, hero_id: 3)
-puts "done seeding"

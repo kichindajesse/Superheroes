@@ -1,61 +1,557 @@
-  [1m[35m (119.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
-  [1m[35m (104.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to CreateHeros (20230325095508)
+  [1m[35m (151.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (164.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHeroPowers (20230326095055)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "hero_powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326095055"]]
+  [1m[36mTRANSACTION (130.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateHeros (20230326095101)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "heros" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230325095508"]]
-  [1m[36mTRANSACTION (103.2ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreatePowers (20230325095520)
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230325095520"]]
-  [1m[36mTRANSACTION (95.2ms)[0m  [1m[36mcommit transaction[0m
-Migrating to CreateHeroPowers (20230325095530)
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "hero_powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
-  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230325095530"]]
-  [1m[36mTRANSACTION (95.3ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
-  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-25 09:56:40.849839"], ["updated_at", "2023-03-25 09:56:40.849839"]]
-  [1m[36mTRANSACTION (138.4ms)[0m  [1m[36mcommit transaction[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326095101"]]
+  [1m[36mTRANSACTION (148.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePowers (20230326095109)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "powers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230326095109"]]
+  [1m[36mTRANSACTION (130.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-26 09:51:24.901482"], ["updated_at", "2023-03-26 09:51:24.901482"]]
+  [1m[36mTRANSACTION (118.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-03-26 12:53:39 +0300
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Started GET "/" for ::1 at 2023-03-25 13:07:23 +0300
-  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Rails::WelcomeController#index as HTML
   Rendering /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.1ms | Allocations: 766)
-Completed 200 OK in 33ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 6739)
+  Rendered /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 766)
+Completed 200 OK in 23ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 6649)
 
 
-Started GET "/power" for ::1 at 2023-03-25 13:07:29 +0300
+Started GET "/heroes" for ::1 at 2023-03-26 12:53:45 +0300
   
-ActionController::RoutingError (No route matches [GET] "/power"):
+ActionController::RoutingError (No route matches [GET] "/heroes"):
   
-Started GET "/powers" for ::1 at 2023-03-25 13:07:32 +0300
+Started GET "/" for ::1 at 2023-03-26 12:53:51 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | Allocations: 449)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 1103)
+
+
+Started GET "/articles" for ::1 at 2023-03-26 12:55:13 +0300
   
-ActionController::RoutingError (uninitialized constant PowersController
-Did you mean?  PowerController
-               HeroController):
+ActionController::RoutingError (No route matches [GET] "/articles"):
   
-Started GET "/Hero" for ::1 at 2023-03-25 13:07:41 +0300
+Started GET "/" for ::1 at 2023-03-26 12:55:19 +0300
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/hero" for ::1 at 2023-03-26 12:55:40 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hero"):
+  
+Started GET "/Hero" for ::1 at 2023-03-26 12:55:53 +0300
   
 ActionController::RoutingError (No route matches [GET] "/Hero"):
   
-Started GET "/Heros" for ::1 at 2023-03-25 13:07:44 +0300
+Started GET "/" for ::1 at 2023-03-26 12:56:00 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 196)
+
+
+Started GET "/powers" for ::1 at 2023-03-26 13:12:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   
-ActionController::RoutingError (No route matches [GET] "/Heros"):
+ActionController::RoutingError (uninitialized constant PowersController
+Did you mean?  PowerController):
   
-Started GET "/heroes" for ::1 at 2023-03-25 13:08:22 +0300
+Started GET "/Powers" for ::1 at 2023-03-26 13:12:23 +0300
   
-ActionController::RoutingError (uninitialized constant HeroesController
-Did you mean?  HeroController
-               HeroPowerController):
+ActionController::RoutingError (No route matches [GET] "/Powers"):
   
+Started GET "/Power" for ::1 at 2023-03-26 13:12:26 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/Power"):
+  
+Started GET "/" for ::1 at 2023-03-26 13:16:54 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ghost/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 448)
+Completed 200 OK in 4ms (Views: 3.2ms | Allocations: 1143)
+
+
+Started GET "/powers" for ::1 at 2023-03-26 13:16:59 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (31.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+Completed 200 OK in 66ms (Views: 34.9ms | ActiveRecord: 31.8ms | Allocations: 1223)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (55.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/heroes" for ::1 at 2023-03-26 13:17:59 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 10ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 4167)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:24:06.851637"], ["updated_at", "2023-03-26 10:24:06.851637"]]
+  [1m[36mTRANSACTION (153.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:24:07.010514"], ["updated_at", "2023-03-26 10:24:07.010514"]]
+  [1m[36mTRANSACTION (127.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:24:07.145329"], ["updated_at", "2023-03-26 10:24:07.145329"]]
+  [1m[36mTRANSACTION (121.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:30.193306"], ["updated_at", "2023-03-26 10:25:30.193306"]]
+  [1m[36mTRANSACTION (117.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:30.315210"], ["updated_at", "2023-03-26 10:25:30.315210"]]
+  [1m[36mTRANSACTION (162.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:30.481608"], ["updated_at", "2023-03-26 10:25:30.481608"]]
+  [1m[36mTRANSACTION (129.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:37.532148"], ["updated_at", "2023-03-26 10:25:37.532148"]]
+  [1m[36mTRANSACTION (112.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:37.649934"], ["updated_at", "2023-03-26 10:25:37.649934"]]
+  [1m[36mTRANSACTION (138.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:25:37.793938"], ["updated_at", "2023-03-26 10:25:37.793938"]]
+  [1m[36mTRANSACTION (156.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:26:01.148066"], ["updated_at", "2023-03-26 10:26:01.148066"]]
+  [1m[36mTRANSACTION (385.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:26:01.539517"], ["updated_at", "2023-03-26 10:26:01.539517"]]
+  [1m[36mTRANSACTION (135.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:26:01.682595"], ["updated_at", "2023-03-26 10:26:01.682595"]]
+  [1m[36mTRANSACTION (137.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:26:01.847914"], ["updated_at", "2023-03-26 10:26:01.847914"]]
+  [1m[36mTRANSACTION (116.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:26:01.970734"], ["updated_at", "2023-03-26 10:26:01.970734"]]
+  [1m[36mTRANSACTION (107.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:28:11.008456"], ["updated_at", "2023-03-26 10:28:11.008456"]]
+  [1m[36mTRANSACTION (120.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:28:11.133754"], ["updated_at", "2023-03-26 10:28:11.133754"]]
+  [1m[36mTRANSACTION (140.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:28:11.280609"], ["updated_at", "2023-03-26 10:28:11.280609"]]
+  [1m[36mTRANSACTION (145.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:28:11.457426"], ["updated_at", "2023-03-26 10:28:11.457426"]]
+  [1m[36mTRANSACTION (127.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:28:11.588676"], ["updated_at", "2023-03-26 10:28:11.588676"]]
+  [1m[36mTRANSACTION (140.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:04.721459"], ["updated_at", "2023-03-26 10:30:04.721459"]]
+  [1m[36mTRANSACTION (137.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:04.864595"], ["updated_at", "2023-03-26 10:30:04.864595"]]
+  [1m[36mTRANSACTION (161.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:05.032294"], ["updated_at", "2023-03-26 10:30:05.032294"]]
+  [1m[36mTRANSACTION (213.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:05.279464"], ["updated_at", "2023-03-26 10:30:05.279464"]]
+  [1m[36mTRANSACTION (154.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:05.441035"], ["updated_at", "2023-03-26 10:30:05.441035"]]
+  [1m[36mTRANSACTION (117.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:15.399844"], ["updated_at", "2023-03-26 10:30:15.399844"]]
+  [1m[36mTRANSACTION (121.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:15.526860"], ["updated_at", "2023-03-26 10:30:15.526860"]]
+  [1m[36mTRANSACTION (236.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.9ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:15.773037"], ["updated_at", "2023-03-26 10:30:15.773037"]]
+  [1m[36mTRANSACTION (210.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:16.005696"], ["updated_at", "2023-03-26 10:30:16.005696"]]
+  [1m[36mTRANSACTION (180.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:30:16.191863"], ["updated_at", "2023-03-26 10:30:16.191863"]]
+  [1m[36mTRANSACTION (128.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:31:46.449264"], ["updated_at", "2023-03-26 10:31:46.449264"]]
+  [1m[36mTRANSACTION (121.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:31:46.576837"], ["updated_at", "2023-03-26 10:31:46.576837"]]
+  [1m[36mTRANSACTION (125.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.9ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:31:46.711334"], ["updated_at", "2023-03-26 10:31:46.711334"]]
+  [1m[36mTRANSACTION (120.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (1.2ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:31:46.871736"], ["updated_at", "2023-03-26 10:31:46.871736"]]
+  [1m[36mTRANSACTION (124.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.5ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:31:47.010972"], ["updated_at", "2023-03-26 10:31:47.010972"]]
+  [1m[36mTRANSACTION (124.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:37:00.738353"], ["updated_at", "2023-03-26 10:37:00.738353"]]
+  [1m[36mTRANSACTION (136.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:37:00.880075"], ["updated_at", "2023-03-26 10:37:00.880075"]]
+  [1m[36mTRANSACTION (148.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:37:01.036600"], ["updated_at", "2023-03-26 10:37:01.036600"]]
+  [1m[36mTRANSACTION (176.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:37:01.263377"], ["updated_at", "2023-03-26 10:37:01.263377"]]
+  [1m[36mTRANSACTION (165.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:37:01.434366"], ["updated_at", "2023-03-26 10:37:01.434366"]]
+  [1m[36mTRANSACTION (149.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:38:18.703336"], ["updated_at", "2023-03-26 10:38:18.703336"]]
+  [1m[36mTRANSACTION (128.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:38:18.837403"], ["updated_at", "2023-03-26 10:38:18.837403"]]
+  [1m[36mTRANSACTION (137.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:38:18.982500"], ["updated_at", "2023-03-26 10:38:18.982500"]]
+  [1m[36mTRANSACTION (124.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:38:19.138725"], ["updated_at", "2023-03-26 10:38:19.138725"]]
+  [1m[36mTRANSACTION (137.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:38:19.280106"], ["updated_at", "2023-03-26 10:38:19.280106"]]
+  [1m[36mTRANSACTION (129.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/heroes" for ::1 at 2023-03-26 13:39:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 22ms (Views: 15.6ms | ActiveRecord: 1.9ms | Allocations: 19769)
+
+
+Started GET "/powers" for ::1 at 2023-03-26 13:39:24 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.8ms | Allocations: 17456)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 13:39:35 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.2ms | Allocations: 1868)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (185.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (129.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (162.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (129.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (127.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.8ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 7]]
+  [1m[36mTRANSACTION (124.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 8]]
+  [1m[36mTRANSACTION (152.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 9]]
+  [1m[36mTRANSACTION (112.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.9ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 10]]
+  [1m[36mTRANSACTION (111.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 11]]
+  [1m[36mTRANSACTION (151.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 12]]
+  [1m[36mTRANSACTION (113.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 13]]
+  [1m[36mTRANSACTION (129.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 14]]
+  [1m[36mTRANSACTION (113.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 15]]
+  [1m[36mTRANSACTION (125.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.4ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 16]]
+  [1m[36mTRANSACTION (171.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 17]]
+  [1m[36mTRANSACTION (134.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 18]]
+  [1m[36mTRANSACTION (134.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.8ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 19]]
+  [1m[36mTRANSACTION (155.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 20]]
+  [1m[36mTRANSACTION (137.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.6ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 21]]
+  [1m[36mTRANSACTION (135.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 22]]
+  [1m[36mTRANSACTION (128.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 23]]
+  [1m[36mTRANSACTION (129.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 24]]
+  [1m[36mTRANSACTION (141.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 25]]
+  [1m[36mTRANSACTION (130.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 26]]
+  [1m[36mTRANSACTION (122.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 27]]
+  [1m[36mTRANSACTION (130.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 28]]
+  [1m[36mTRANSACTION (127.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.3ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 29]]
+  [1m[36mTRANSACTION (140.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Destroy (0.7ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 30]]
+  [1m[36mTRANSACTION (134.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPower Load (0.7ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.3ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (147.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.2ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 2]]
+  [1m[36mTRANSACTION (119.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.7ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (113.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.4ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 4]]
+  [1m[36mTRANSACTION (110.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.7ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 5]]
+  [1m[36mTRANSACTION (157.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.7ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 6]]
+  [1m[36mTRANSACTION (134.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.8ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 7]]
+  [1m[36mTRANSACTION (190.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.8ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 8]]
+  [1m[36mTRANSACTION (133.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.2ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 9]]
+  [1m[36mTRANSACTION (119.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.2ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 10]]
+  [1m[36mTRANSACTION (129.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.7ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 11]]
+  [1m[36mTRANSACTION (165.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.2ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 12]]
+  [1m[36mTRANSACTION (130.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.3ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 13]]
+  [1m[36mTRANSACTION (126.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Destroy (0.8ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 14]]
+  [1m[36mTRANSACTION (124.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mHeroPower Load (0.2ms)[0m  [1m[34mSELECT "hero_powers".* FROM "hero_powers"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:20.655748"], ["updated_at", "2023-03-26 10:41:20.655748"]]
+  [1m[36mTRANSACTION (154.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:20.814091"], ["updated_at", "2023-03-26 10:41:20.814091"]]
+  [1m[36mTRANSACTION (140.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:20.958134"], ["updated_at", "2023-03-26 10:41:20.958134"]]
+  [1m[36mTRANSACTION (149.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.113736"], ["updated_at", "2023-03-26 10:41:21.113736"]]
+  [1m[36mTRANSACTION (129.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.247478"], ["updated_at", "2023-03-26 10:41:21.247478"]]
+  [1m[36mTRANSACTION (117.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.369148"], ["updated_at", "2023-03-26 10:41:21.369148"]]
+  [1m[36mTRANSACTION (118.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.493856"], ["updated_at", "2023-03-26 10:41:21.493856"]]
+  [1m[36mTRANSACTION (125.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.624378"], ["updated_at", "2023-03-26 10:41:21.624378"]]
+  [1m[36mTRANSACTION (128.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.759996"], ["updated_at", "2023-03-26 10:41:21.759996"]]
+  [1m[36mTRANSACTION (126.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.7ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:41:21.892336"], ["updated_at", "2023-03-26 10:41:21.892336"]]
+  [1m[36mTRANSACTION (133.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/heroes" for ::1 at 2023-03-26 13:41:56 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 13:41:57 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "/powers" for ::1 at 2023-03-26 13:43:33 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+Started GET "/heropowers" for ::1 at 2023-03-26 13:43:42 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/heropowers"):
+  
+Started GET "/hero_powers" for ::1 at 2023-03-26 13:43:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hero_powers"):
+  
+Started GET "/hero" for ::1 at 2023-03-26 13:44:18 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hero"):
+  
+Started GET "/heroes" for ::1 at 2023-03-26 13:44:20 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 842)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 13:46:18 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 843)
+
+
+Started GET "/heroes" for ::1 at 2023-03-26 13:46:20 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.2ms | Allocations: 843)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.192099"], ["updated_at", "2023-03-26 10:46:26.192099"]]
+  [1m[36mTRANSACTION (136.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.333676"], ["updated_at", "2023-03-26 10:46:26.333676"]]
+  [1m[36mTRANSACTION (137.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.480143"], ["updated_at", "2023-03-26 10:46:26.480143"]]
+  [1m[36mTRANSACTION (120.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.628558"], ["updated_at", "2023-03-26 10:46:26.628558"]]
+  [1m[36mTRANSACTION (132.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.765521"], ["updated_at", "2023-03-26 10:46:26.765521"]]
+  [1m[36mTRANSACTION (184.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:46:26.954681"], ["updated_at", "2023-03-26 10:46:26.954681"]]
+  [1m[36mTRANSACTION (316.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.030400"], ["updated_at", "2023-03-26 10:48:46.030400"]]
+  [1m[36mTRANSACTION (132.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.6ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.168123"], ["updated_at", "2023-03-26 10:48:46.168123"]]
+  [1m[36mTRANSACTION (126.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.4ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.302695"], ["updated_at", "2023-03-26 10:48:46.302695"]]
+  [1m[36mTRANSACTION (136.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.3ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.462997"], ["updated_at", "2023-03-26 10:48:46.462997"]]
+  [1m[36mTRANSACTION (164.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.633195"], ["updated_at", "2023-03-26 10:48:46.633195"]]
+  [1m[36mTRANSACTION (139.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.4ms)[0m  [1m[32mINSERT INTO "powers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-26 10:48:46.779939"], ["updated_at", "2023-03-26 10:48:46.779939"]]
+  [1m[36mTRANSACTION (134.7ms)[0m  [1m[36mcommit transaction[0m
