@@ -1,5 +1,5 @@
-class HeroPowerSerializer < ActiveModel::Serializer
-  attributes :id, :strength
-  belongs_to :hero
+class HeropowerSerializer < ActiveModel::Serializer
+  attributes :id, :strength, :power_id, :hero_id
+  
   belongs_to :power
 end

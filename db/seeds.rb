@@ -2,7 +2,7 @@
 puts "start seeding"
 
 # create some powers for the heroes
-power1 = Power.create(name: "Batman", description: "Ability to fly high speed and control  the speed of the character")
+power1 = Power.create(name: "Batman", description: "Ability to fly high speed ")
 power2 = Power.create(name: "Super strength", description: "Unmatched physical strength")
 power3 = Power.create(name: "Invisibility", description: "Ability to become invisible")
 power4 = Power.create(name: "Regeneration", description: "Ability to heal from injuries quickly")

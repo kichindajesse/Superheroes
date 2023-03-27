@@ -1,7 +1,7 @@
 class PowersController < ApplicationController
   def index
     powers = Power.all
-    render json: powers, only: [:id, :name, :description]
+    render json: powers, only: [:id, :name, :description, :strength]
   end
 
   def show
