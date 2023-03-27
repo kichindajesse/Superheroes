@@ -5,14 +5,18 @@ class PowersController < ApplicationController
   end
 
   def show
-    power = Power.find(params[:id])
-    render json: power
+    power = Power.find_by(id: params[:id])
+    if power
+      render json: power
+    else
+      render json: { error: "Power not found" }, status: :not_found
+    end
   end
 
-def update
+  def update
   power = Power.find_by(id: params[:id])
   if power
-    if power.update(power_params.merge(description: params[:description]))
+    if power.update(power_params)
       render json: power
     else
       render json: { errors: power.errors }, status: :unprocessable_entity
@@ -26,6 +30,6 @@ end
   private
 
   def power_params
-    params.require(:power).permit(:name, :description)
-  end
+  params.require(:power).permit(:name, :description)
+end
 end
