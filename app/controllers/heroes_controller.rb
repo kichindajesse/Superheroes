@@ -1,9 +1,10 @@
 class HeroesController < ApplicationController
   def index
     heroes = Hero.all
-    render json: heroes, only: [:id, :name, :super_name]
+    render json: heroes
   end
 
+ 
   def show
     hero = Hero.includes(:powers).find_by(id: params[:id])
     if hero
@@ -13,3 +14,4 @@ class HeroesController < ApplicationController
     end
   end
 end
+
