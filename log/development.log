@@ -2649,3 +2649,217 @@ Completed 500 Internal Server Error in 34ms (ActiveRecord: 2.9ms | Allocations: 
 ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: hero_powers.hero_id):
   
 app/controllers/heroes_controller.rb:4:in `index'
+Started GET "/powers" for ::1 at 2023-03-27 04:09:38 +0300
+Processing by PowersController#index as HTML
+  [1m[36mPower Load (0.8ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.85ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.8ms | Allocations: 7347)
+
+
+Started GET "/heroes" for ::1 at 2023-03-27 04:09:53 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.7ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPower Load (1.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 81]]
+[active_model_serializers]   ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.69ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.1ms | Allocations: 6355)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: hero_powers.hero_id):
+  
+app/controllers/heroes_controller.rb:4:in `index'
+Started GET "/heroes" for ::1 at 2023-03-27 04:09:54 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPower Load (0.8ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 81]]
+[active_model_serializers]   ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.86ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.2ms | Allocations: 6352)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: hero_powers.hero_id):
+  
+app/controllers/heroes_controller.rb:4:in `index'
+Started GET "/powers" for ::1 at 2023-03-27 04:10:28 +0300
+Processing by PowersController#index as */*
+  Parameters: {"id"=>1, "name"=>"Cheese", "ingredients"=>"Dough, Tomato Sauce, Cheese", "power"=>{"id"=>1, "name"=>"Cheese"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.06ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 6051)
+
+
+Started PATCH "/powers" for ::1 at 2023-03-27 04:10:51 +0300
+  
+ActionController::RoutingError (No route matches [PATCH] "/powers"):
+  
+Started PATCH "/powers/1" for ::1 at 2023-03-27 04:10:57 +0300
+Processing by PowersController#update as */*
+  Parameters: {"id"=>"1", "name"=>"Cheese", "ingredients"=>"Dough, Tomato Sauce, Cheese", "power"=>{"id"=>"1", "name"=>"Cheese"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 445)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.4.3) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.4.3) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.4.3) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4.3) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.6.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/powers/1" for ::1 at 2023-03-27 04:11:34 +0300
+Processing by PowersController#show as */*
+  Parameters: {"id"=>"1", "name"=>"Cheese", "ingredients"=>"Dough, Tomato Sauce, Cheese", "power"=>{"id"=>"1", "name"=>"Cheese"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:8:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1248)
+
+
+Started GET "/heroes" for ::1 at 2023-03-27 04:12:05 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPower Load (1.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 81]]
+[active_model_serializers]   ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.8ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 3.5ms | Allocations: 19372)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: hero_powers.hero_id):
+  
+app/controllers/heroes_controller.rb:4:in `index'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.8ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Batman"], ["description", "Ability to fly high speed "], ["created_at", "2023-03-27 01:12:23.010893"], ["updated_at", "2023-03-27 01:12:23.010893"]]
+  [1m[36mTRANSACTION (92.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.9ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Super strength"], ["description", "Unmatched physical strength"], ["created_at", "2023-03-27 01:12:23.114727"], ["updated_at", "2023-03-27 01:12:23.114727"]]
+  [1m[36mTRANSACTION (98.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.8ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Invisibility"], ["description", "Ability to become invisible"], ["created_at", "2023-03-27 01:12:23.225492"], ["updated_at", "2023-03-27 01:12:23.225492"]]
+  [1m[36mTRANSACTION (110.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (1.0ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Regeneration"], ["description", "Ability to heal from injuries quickly"], ["created_at", "2023-03-27 01:12:23.347841"], ["updated_at", "2023-03-27 01:12:23.347841"]]
+  [1m[36mTRANSACTION (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (1.0ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Telekinesis"], ["description", "Ability to move objects with the mind"], ["created_at", "2023-03-27 01:12:23.458760"], ["updated_at", "2023-03-27 01:12:23.458760"]]
+  [1m[36mTRANSACTION (97.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Create (0.6ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Weather control"], ["description", "Ability to control the weather"], ["created_at", "2023-03-27 01:12:23.568299"], ["updated_at", "2023-03-27 01:12:23.568299"]]
+  [1m[36mTRANSACTION (102.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.5ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:23.708753"], ["updated_at", "2023-03-27 01:12:23.708753"]]
+  [1m[36mTRANSACTION (96.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.3ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:23.811029"], ["updated_at", "2023-03-27 01:12:23.811029"]]
+  [1m[36mTRANSACTION (268.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.9ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:24.087167"], ["updated_at", "2023-03-27 01:12:24.087167"]]
+  [1m[36mTRANSACTION (119.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (1.0ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:24.218665"], ["updated_at", "2023-03-27 01:12:24.218665"]]
+  [1m[36mTRANSACTION (81.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (0.8ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:24.313345"], ["updated_at", "2023-03-27 01:12:24.313345"]]
+  [1m[36mTRANSACTION (104.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mHero Create (1.0ms)[0m  [1m[32mINSERT INTO "heros" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2023-03-27 01:12:24.430523"], ["updated_at", "2023-03-27 01:12:24.430523"]]
+  [1m[36mTRANSACTION (119.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/heroes" for ::1 at 2023-03-27 04:12:30 +0300
+Processing by HeroesController#index as HTML
+  [1m[36mHero Load (0.4ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPower Load (0.9ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 81]]
+[active_model_serializers]   ↳ app/controllers/heroes_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.96ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 3.1ms | Allocations: 19622)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: hero_powers.hero_id):
+  
+app/controllers/heroes_controller.rb:4:in `index'
